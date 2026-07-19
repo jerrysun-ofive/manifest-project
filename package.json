@@ -11,6 +11,11 @@
     "test:frontend": "npm run test --prefix frontend",
     "test:backend": "npm run test --prefix backend",
     "test:e2e": "npm run test:e2e --prefix frontend",
-    "lint": "npm run lint --prefix frontend"
+    "lint": "npm run lint --prefix frontend",
+    "ci": "npm run lint && npm run test && npm run build",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }
