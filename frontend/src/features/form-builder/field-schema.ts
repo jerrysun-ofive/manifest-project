@@ -284,7 +284,7 @@ export const formDocumentSchema: z.ZodType<FormDocument> = z
       context.addIssue({
         code: "custom",
         path: ["fields"],
-        message: "Field IDs must be unique",
+        message: "Field ids must be unique",
       });
     }
   });
