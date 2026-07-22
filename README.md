@@ -30,6 +30,10 @@ The project focuses on the form building experience rather than collecting or st
 
 The concept is inspired by Tally.
 
+## Deployment
+
+For convenience, a live version of the project is deployed on [Vercel](https://manifest-project-pi.vercel.app/). The project can also be run locally using the instructions below.
+
 ## Installation and Local Development
 
 ### Prerequisites
