@@ -15,6 +15,8 @@ test("adds and edits a field", async ({ page }) => {
     name: "Add field",
   }).click();
 
+  await page.keyboard.press("Enter");
+
   await expect(page.getByText("1/50 fields")).toBeVisible();
 
   const fieldLabel = page.getByRole("textbox", {

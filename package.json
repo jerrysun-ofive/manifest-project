@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "npm run dev --prefix frontend",
     "dev:backend": "npm run dev --prefix backend",
     "build": "npm run build --prefix frontend && npm run build --prefix backend",
@@ -13,9 +13,11 @@
     "test:e2e": "npm run test:e2e --prefix frontend",
     "lint": "npm run lint --prefix frontend",
     "ci": "npm run lint && npm run test && npm run build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "install:all": "npm ci && npm ci --prefix frontend && npm ci --prefix backend"
   },
   "devDependencies": {
+    "concurrently": "^10.0.3",
     "husky": "^9.1.7"
   }
 }

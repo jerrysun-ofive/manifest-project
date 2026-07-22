@@ -2,7 +2,9 @@
 
 ## Why I Am Building This
 
-I am building this project to demonstrate my frontend engineering skills through a functional, data driven product rather than a static marketing website.
+Hi Henry and Tom, thank you again for this opportunity!
+
+I am building this project to demonstrate my frontend engineering skills through a functional product rather than a static marketing website.
 
 Most of my previous projects have focused on full stack development and machine learning. While those projects included frontend work, the interface was usually only one part of a broader system. This project is therefore intentionally more frontend focused, giving me an opportunity to concentrate on product quality, responsive design, testing, accessibility, data handling and maintainable React architecture.
 
@@ -28,39 +30,68 @@ The project focuses on the form building experience rather than collecting or st
 
 The concept is inspired by Tally.
 
-## Planned Features
+## Installation and Local Development
 
-### Drag-and-Drop Field Reordering
+### Prerequisites
 
-Users can change field order through drag and drop.
+- Node.js 20.19 or later
+- npm
 
-The interaction will include:
+### Install dependencies
 
-* clear drag handles
-* visible drop locations
-* smooth movement
-* protection against invalid drop states
+```bash
+git clone <repository-url>
+cd manifest-project
+
+npm run install:all
+```
+
+### Run locally
+
+Start the frontend and backend together:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+The backend API runs at [http://localhost:3001](http://localhost:3001).
+
+## Project Scope
+
+This project was created primarily to demonstrate my frontend engineering skills. A basic backend structure was started, however I ran out of time so a full backend integration, persistence and form submission handling were not completed.  
+
+## Features
+
+### Inline Editing
+
+The form title, description, field labels and field descriptions can all be edited directly within the builder. This keeps the editing experience close to the appearance of the finished form.
+
+### Field Types and Insertion
+
+The builder supports short text, long text, number, date and dropdown fields. Fields can be inserted at a specific position using the **Add field** controls or the `/` keyboard shortcut. The field menu is searchable and supports keyboard navigation. The fields search also supports most most likely fields, i.e. searching "age" will suggest the "numbers" field.  
+
+### Field Management and Reordering
+
+Fields can be marked as required, duplicated, deleted or moved up and down. They can also be reordered using drag and drop, with a visual preview and drop indicator showing where the selected field will be placed.
 
 ### Field Configuration
 
-Each field has its own configuration.
+Each field has settings suited to its type, including placeholders, default values, text length limits, number ranges and dropdown options. The builder validates the configuration and displays clear errors when settings conflict, such as a minimum value exceeding the maximum.
 
-For example, a text input may support:
+### Form Preview and Response Validation
 
-```text
-Label: Full name
-Placeholder: Enter your name
-Required: Yes
-Minimum length: 2
-Maximum length: 100
+The **Test form** view displays the form as a user would see it. Responses are validated against the configured required fields and limits, with field specific error messages shown for missing or invalid answers.
+
+## Testing
+
+The frontend uses Vitest and React Testing Library for component and interaction tests, with Playwright covering the main browser workflow.
+
+```bash
+npm run test:frontend
+npm run test:e2e
+npm run test:coverage --prefix frontend
 ```
 
-A dropdown may support:
-
-```text
-Label: Account type
-Options:
-- Personal
-- Business
-- Student
-```
+**Test coverage:** The project currently achieves 87.87% statement coverage, 77.69% branch coverage, 82.11% function coverage, and 87.69% line coverage.
